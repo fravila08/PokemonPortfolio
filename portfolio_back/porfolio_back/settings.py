@@ -25,11 +25,11 @@ load_dotenv()
 SECRET_KEY = os.environ['djangoKey']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
-
+CSRF_TRUSTED_ORIGINS=["https://favilas-portfolio.com"]
 # Application definition
 
 INSTALLED_APPS = [
