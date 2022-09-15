@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {motion} from "framer-motion"
 
 function SignIn() {
   function signIn(event) {
@@ -15,7 +16,11 @@ function SignIn() {
     
   }
   return (
-      <div style={{display:"flex", justifyContent:"center", marginTop:"20vh", paddingBottom:"10vh"}}>
+      <motion.div
+      initial={{opacity:0}}
+      animate={{opacity:1}}
+      exit={{opacity:0}}  
+      style={{display:"flex", justifyContent:"center", marginTop:"20vh", paddingBottom:"10vh"}}>
         <div className="signup">
           <form onSubmit={signIn}>
             <label htmlFor="email">Email</label>
@@ -35,7 +40,7 @@ function SignIn() {
             <a href="#/SignUp">Create New Account</a>
           </form>
         </div>
-      </div>
+      </motion.div>
   )
 }
 

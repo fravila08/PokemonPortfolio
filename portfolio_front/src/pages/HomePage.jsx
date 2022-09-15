@@ -1,8 +1,13 @@
 import {Link } from "react-router-dom"
+import { motion } from "framer-motion"
 
 function Home(){
     return (
-        <div style={{paddingTop:"4vw", display:"flex", justifyContent:"center"}}>
+        <motion.div
+        initial={{opacity:0}}
+        animate={{opacity:1}}
+        exit={{opacity:0}} 
+        style={{paddingTop:"4vw", display:"flex", justifyContent:"center"}}>
             <div style={{display:"flex", flexDirection:"column", textAlign:"center", width:"70%", paddingBottom:"10vh"}}>
                 <h1>Greetings,</h1>
                 <br/>
@@ -33,7 +38,7 @@ function Home(){
                 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/>  
                 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/></p>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

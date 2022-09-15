@@ -4,6 +4,7 @@ import ultraBall from "../images/pokeballs/ultraBall.png"
 import greatBall from "../images/pokeballs/greatBall.png"
 import {Shake} from "reshake"
 import axios from "axios"
+import {motion} from "framer-motion"
 
 function ContactMe({setShowVolcano}){
 
@@ -17,7 +18,11 @@ function ContactMe({setShowVolcano}){
 
 
     return(
-        <div style={{paddingTop:"5vw"}}>
+        <motion.div 
+        initial={{opacity:0}}
+        animate={{opacity:1}}
+        exit={{opacity:0}} 
+        style={{paddingTop:"5vw"}}>
             <div style={{textAlign:"center"}}>
                 <h1>Contact Me</h1>
             </div>
@@ -35,7 +40,7 @@ function ContactMe({setShowVolcano}){
                             </div>
                             <textarea cols="30" rows="10" placeholder="Type your message here."></textarea>
                             
-                            <button type="submit" style={{color:"white",backgroundColor:"green", boder:"10px green solid", width:"100%"}}> Send</button>
+                            <button type="submit" style={{color:"white",backgroundColor:"green", boder:"10px green solid", width:"100%"}}>Send</button>
                         </form>
                     </div>
                     <div className="contactRow"   onClick={newBadge}>
@@ -58,7 +63,7 @@ function ContactMe({setShowVolcano}){
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

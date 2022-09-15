@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import NavBaar from './components/Navbar'
-import {HashRouter as Router, Routes, Route} from "react-router-dom";
+import {HashRouter as Router, Routes, Route, useLocation} from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ProjectPage from "./pages/ProjectPage";
 import ThePast from './pages/ThePast';
@@ -22,6 +22,7 @@ import SoulBadge from './modals/soulModal';
 import MarshBadge from './modals/marshModal';
 import VolcanoBadge from './modals/volcanoModal';
 import EarthBadge from './modals/earthModal';
+import AnimatedRoutes from './components/AnimatedRoutes';
 
 
 function getCookie(name) {
@@ -73,6 +74,7 @@ function App() {
   const [showMarsh, setShowMarsh]=useState(false);
   const [showVolcano, setShowVolcano]=useState(false);
   const [showEarth, setShowEarth]=useState(false)
+  
   
   return (
     <div className="App" >      
@@ -168,16 +170,9 @@ function App() {
       </div>
       <PokeSep />
       <Router>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/myProjects" element={<ProjectPage user={user} setModalShow={setModalShow} setShowCascade={setShowCascade} setNeedRelease={setNeedRelease} 
-          setShowThunder={setShowThunder} setShowRainbow={setShowRainbow}  />} />
-          <Route path='/thePast' element={<ThePast />} />
-          <Route path='/contactMe' element={<ContactMe user={user} setShowVolcano={setShowVolcano}/>} />
-          <Route path='/signUp' element={<SignUp />} />
-          <Route path='/signIn' element={<SignIn />} />
-          <Route path='/myProfile' element={<MyProfile user={user} setReleaseShow={setReleaseShow} setShowEarth={setShowEarth}/>} />
-        </Routes>
+        <AnimatedRoutes user={user} setModalShow={setModalShow} setShowCascade={setShowCascade} 
+        setNeedRelease={setNeedRelease} setShowThunder={setShowThunder} setShowRainbow={setShowRainbow} 
+        setShowVolcano={setShowVolcano} setReleaseShow={setReleaseShow} setShowEarth={setShowEarth} />
       </Router>
     </div>
   )

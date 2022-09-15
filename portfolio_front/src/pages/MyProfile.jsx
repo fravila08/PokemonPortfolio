@@ -13,6 +13,7 @@ import rainbow from "../images/badges/rainbow.png"
 import soul from "../images/badges/soul.png"
 import thunder from "../images/badges/thunder.png"
 import volcano from "../images/badges/volcano.png"
+import {motion} from "framer-motion"
 
 function Myprofile({user, setReleaseShow, setShowEarth}){
     const [pokemon, setPokemon] = useState([])
@@ -62,7 +63,11 @@ function Myprofile({user, setReleaseShow, setShowEarth}){
     }
     
     return(
-        <div className="myProfileHolder">
+        <motion.div
+        initial={{opacity:0}}
+        animate={{opacity:1}}
+        exit={{opacity:0}} 
+        className="myProfileHolder">
             <div className="pokemonTeam">
                 {pokemon.length ? 
                 pokemon.map((poke)=>(
@@ -141,7 +146,7 @@ function Myprofile({user, setReleaseShow, setShowEarth}){
                 </div>
             </div>
             
-        </div>
+        </motion.div>
     )
 }
 

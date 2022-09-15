@@ -4,6 +4,7 @@ import pokeBall from "../images/pokeballs/pokeBall.png"
 import { Shake } from "reshake"
 import Accordion from 'react-bootstrap/Accordion';
 import FindPokemon from "../components/findPoke";
+import {motion} from "framer-motion"
 
 function MyProjects({user, setModalShow, setNeedRelease, setShowCascade, setShowThunder, setShowRainbow}){
     const [pokemon, setPokemon]=useState([])
@@ -40,7 +41,11 @@ function MyProjects({user, setModalShow, setNeedRelease, setShowCascade, setShow
         
 
     return(
-        <div style={{paddingTop:"6vw", display:"flex", flexDirection:"column", alignItems:"center"}}>
+        <motion.div
+        initial={{opacity:0}}
+        animate={{opacity:1}}
+        exit={{opacity:0}}  
+        style={{paddingTop:"6vw", display:"flex", flexDirection:"column", alignItems:"center"}}>
             <h5>This is my favorite team from Fire Red</h5>
             <div className="myTeamHolder" >
                 {show ? pokemon.map((poke)=>(
@@ -224,7 +229,7 @@ function MyProjects({user, setModalShow, setNeedRelease, setShowCascade, setShow
                         </p>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
