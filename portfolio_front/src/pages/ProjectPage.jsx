@@ -167,11 +167,13 @@ function MyProjects({user, setModalShow, setNeedRelease, setShowCascade, setShow
 
                             <Accordion defaultActiveKey="1">
                                 <Accordion.Item eventKey="0">
-                                    <Accordion.Header>Restaurant Menu</Accordion.Header>
+                                    <Accordion.Header>The Happy Pig</Accordion.Header>
                                     <Accordion.Body>
                                     Full-Stack application using React, Django, PostgreSQL. Using two rapid 
                                     API's with Django Rest Frameworks to create the menu item content while 
-                                    utilizing CRUD concepts to alter cart items for each user. 
+                                    utilizing CRUD concepts to alter cart items for each user.
+                                    <br/>
+                                    <a href="https://fathehappypig.com" target="_blank">Check Me Out!</a> 
                                     </Accordion.Body>
                                 </Accordion.Item>
                                 <Accordion.Item eventKey="1">
@@ -181,13 +183,18 @@ function MyProjects({user, setModalShow, setNeedRelease, setShowCascade, setShow
                                     project API to create random items from search bar. This project clearly demonstrates
                                     Django's extends functionality in templates.
                                     <br/>
-                                    <a href="https://cpfitstore.com/" target="_blank" onClick={newBadge}>Check Me Out</a>
+                                    <a href="https://cpfitstore.com/" target="_blank" onClick={newBadge}>Check Me Out!</a>
                                     </Accordion.Body>
                                 </Accordion.Item>
                                 <Accordion.Item eventKey="2">
-                                    <Accordion.Header>CraigList Junior</Accordion.Header>
+                                    <Accordion.Header>Task Manager</Accordion.Header>
                                     <Accordion.Body>
-                                    Django ran post application used to clearly demonstrate CRUD concepts in a Forum format.
+                                    This application was built utilizing Django, React, Django_Rest_Frameworks, PostgreSQL, and the
+                                    React-Draggable library. Users have the ability to create tasks by providing at minimum a date and 
+                                    a title for their event. Events of the day are displayed on their Dash Board and all other task lie within
+                                    the tasks or completed tasks tabs.
+                                    <br/>
+                                    <a href="https://fataskmanager.com" target="_blanck">Check Me Out!</a>
                                     </Accordion.Body>
                                 </Accordion.Item>
                                 </Accordion>
