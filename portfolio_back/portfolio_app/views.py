@@ -73,11 +73,11 @@ def curr_user(request):
 
 @api_view(['GET'])
 def profile_page(request):
-    try:
+    if request.user:
         current_user = AppUser.objects.filter(id=request.user.id).values()[0]
         return Response(current_user)
-    except:
-        pass
+    else:
+        return Response(False)
     
 @api_view(["POST"])
 def savePokemon(request):

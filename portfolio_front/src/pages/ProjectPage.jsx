@@ -181,7 +181,7 @@ function MyProjects({user, setModalShow, setNeedRelease, setShowCascade, setShow
                                     project API to create random items from search bar. This project clearly demonstrates
                                     Django's extends functionality in templates.
                                     <br/>
-                                    <a href="#" onClick={newBadge}>Check Me Out</a>
+                                    <a href="https://cpfitstore.com/" target="_blank" onClick={newBadge}>Check Me Out</a>
                                     </Accordion.Body>
                                 </Accordion.Item>
                                 <Accordion.Item eventKey="2">
