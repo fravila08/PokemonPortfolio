@@ -5,8 +5,36 @@ import greatBall from "../images/pokeballs/greatBall.png"
 import {Shake} from "reshake"
 import axios from "axios"
 import {motion} from "framer-motion"
+import {send} from 'emailjs-com';
+import {useState} from "react"
 
 function ContactMe({setShowVolcano}){
+    const [toSend, setToSend] = useState({
+        from_name: '',
+        to_name: '',
+        message: '',
+        reply_to: '',
+      });
+    
+    const handleChange = (e) => {
+        setToSend({ ...toSend, [e.target.name]: e.target.value });
+    };
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        send(
+          'service_uxi6i05',
+          'template_xvwlb3u',
+          toSend,
+          'B8g7aY9kzfbI5HR-_'
+        )
+          .then((response) => {
+            console.log('SUCCESS!', response.status, response.text);
+          })
+          .catch((err) => {
+            console.log('FAILED...', err);
+          });
+      };
 
     const newBadge = async () =>{
         const badge= await axios.get('badges')
@@ -33,13 +61,32 @@ function ContactMe({setShowVolcano}){
                             <h3>Send Me an Email</h3>
                             <Shake><img className="ballRow" src={masterBall}/></Shake>
                         </div>
-                        <form action="https://formsubmit.co/fr4v1l4@gmail.com" method="POST" >
+                        <form onSubmit={onSubmit}>
                             <div className="formContactHolder">
-                                <input type="text" placeholder="Your Name" />
-                                <input type="text" placeholder="Your Email" />
+                                <input
+                                    type='text'
+                                    name='from_name'
+                                    placeholder='from name'
+                                    value={toSend.from_name}
+                                    onChange={handleChange}
+                                />
+                                <input
+                                    type='text'
+                                    name='reply_to'
+                                    placeholder='Your email'
+                                    value={toSend.reply_to}
+                                    onChange={handleChange}
+                                />  
                             </div>
-                            <textarea cols="30" rows="10" placeholder="Type your message here."></textarea>
-                            
+                            <textarea
+                                className="wanttextarea"
+                                type='text'
+                                name='message'
+                                placeholder='Your message'
+                                value={toSend.message}
+                                onChange={handleChange}
+                            />
+                                               
                             <button type="submit" style={{color:"white",backgroundColor:"green", boder:"10px green solid", width:"100%"}}>Send</button>
                         </form>
                     </div>
