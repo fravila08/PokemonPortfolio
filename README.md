@@ -1,11 +1,10 @@
 
 # Pokemon Portfolio
 
-This portfolio will clearly demonstrate my capabilities as a Full-Stack developer 
-while creating a user experience that is both fun and informative.
+This portfolio will clearly demonstrate my capabilities as a Full-Stack developer, creating a user experience that is both interactive and informative.
 
 
-the previous version of this project is currently deployed [here](https://favilas-portfolio.com).
+The previous version of this project is currently deployed [here](https://favilas-portfolio.com).
 
 <img width="1512" alt="Screen Shot 2022-10-21 at 4 55 51 AM" src="https://user-images.githubusercontent.com/105952966/197190232-f58f3ae3-f146-4570-a5d2-74acedd1d100.png">
 
@@ -38,7 +37,7 @@ You can find all documentation pertaining to the PokeAPI [here](https://pokeapi.
 
 ## Environment Variables
 
-Please ensure to hide your Django secret key inside your Environment as 'djangoKey.
+Please ensure to hide your Django secret key inside your Environment as 'djangoKey'.
 
 You can find this key on line 25 inside: 
 
@@ -86,14 +85,14 @@ You can find this key on line 25 inside:
   touch .env 
 ```
 
-- The following commanda will be used to run the React portion of the project. 
+- The following commands will be used to run the React portion of the project. 
 
 ```bash
   cd portfolio_front
   npm install
   npm run build
 ```
-- Then create your database using PostgreSQL. We will use to install postgres, then we will enter postgres and create the portfolio database.
+- Then create your database using PostgreSQL. We will use brew to install postgres, then we will enter postgres and create the portfolio database.
 ```bash
     brew doctor
     brew update
@@ -111,12 +110,12 @@ You can find this key on line 25 inside:
   python3 manage.py migrate
 ```
 
-- Finally we are ready to start the server.
+- Finally, we are ready to start the server.
 
 ```bash
   python3 manage.py runserver
 ```
-- Now open your prefered browser and go to [localhost:8000](localhost:8000) to view this application!
+- Now open your preferred browser and go to [localhost:8000](localhost:8000) to view this application!
 
 #### Useful Resources for running Locally
 [Django VS code tutorial](https://code.visualstudio.com/docs/python/tutorial-django) goes over creating and activating an environment
@@ -135,6 +134,17 @@ You can find this key on line 25 inside:
 - User can collect gym badges by exploring the application.
 - User can send me an email via the contact from in the contact page.
 
+## Things I would do differently:
+- A heavy amount of Modals were utilized throughout this project and each modal consists of its own component. Although it works well, I would like to figure out a way to use one modal whose content would change depending on the action causing the modal to be revealed. 
+
+- Restarting the application views to add functionality, depending on the type of request rather than making an independent view for each individual action. Having a view for each request and desired information works well and makes the views and functionality of the application easy to follow, but hurts the application’s overall efficiency.
+
+## Future Improvements:
+- Implement more testing features in both React and Django. Currently, I am learning to utilize Jest with React to create test and will soon add more efficient test to my components.
+- Stop the re-rendering of application! Currently, certain axios calls make the page re-render to allow new user data to appear. This could be fixed by using some JavaScript functionality to alter specific elements rather than rendering the entire page all over again.
+- Implement an API to verify user emails and a password verifying functionality when signing up for an account.
+- I would like to change my Back-End framework to run on Node.js and change my database to MongoDB, to determine which type of database would work best with this application.
+
 
 ## Got any advice?
 
@@ -144,9 +154,9 @@ I'm always looking to learn and grow, please email me at fr4v1l4@gmail.com
 I'm looking forward to hearing from you!
 
 
-## Related
+## Related Projects
 
-Here are some related projects that have been deployed through AWS ec2 instances, Route53, Gunicorn, Nginx
+Here are some related projects that have been deployed through AWS ec2 instances, Route53, Gunicorn, Nginx,
 and Certbot
 
 - [The Happy Pig](https://fathehappypig.com)
