@@ -20,6 +20,7 @@ function Myprofile({user, setReleaseShow, setShowEarth}){
     const [show, setShow] = useState(false)
     const [count, setCount]=useState(0)
 
+    // lines 24-32: Grabs users captured pokemon from the database upon mounting and dismounting
     const theATeam = async () =>{
         let newTeam =await axios.get("getMyPokemon")
         setPokemon(newTeam.data)
@@ -30,6 +31,7 @@ function Myprofile({user, setReleaseShow, setShowEarth}){
         theATeam()
     },[])
     
+    // lines 35-46: sends a delete request to delete a pokemon from a users
     const releasePokemon=(id)=>{
         try{
             axios.delete(`release/${id}`).then((response)=>{
@@ -42,6 +44,8 @@ function Myprofile({user, setReleaseShow, setShowEarth}){
             alert("Couldn't release Pokemon")
         }
     }
+    
+    // lines49-57: returns the number of badges the user has unlocked to show them in users trainer card
     const getBadges= async()=>{
         const badgeNumber = await axios.get("badges")
         let num= badgeNumber.data
@@ -51,8 +55,6 @@ function Myprofile({user, setReleaseShow, setShowEarth}){
     useEffect (()=>{
         getBadges()
     },[])
-
-    
     
     const newBadge = async () =>{
         const badge= await axios.get('badges')
@@ -69,6 +71,7 @@ function Myprofile({user, setReleaseShow, setShowEarth}){
         exit={{opacity:0}} 
         className="myProfileHolder">
             <div className="pokemonTeam">
+                {/* maps through each individual pokemon the user has saved and renders them individually */}
                 {pokemon.length ? 
                 pokemon.map((poke)=>(
                     <div className="pokeCardTeam">
@@ -87,7 +90,6 @@ function Myprofile({user, setReleaseShow, setShowEarth}){
                         </div>
                     </div>
                 )): 
-                // <button style={{color:"gold", backgroundColor:"red", border:"5px black solid", padding:"10px 20px", fontSize:"3vh", borderRadius:"30px"}} onClick={theATeam}>See My Team</button>
                 <p></p>}
             </div>
             <div style={{display:"flex", justifyContent:"center"}}>
@@ -117,6 +119,7 @@ function Myprofile({user, setReleaseShow, setShowEarth}){
                     <div className="badges">
                         BADGES
                         <div style={{display:"flex", justifyContent:"space-around"}} >
+                            {/* lines 123-146: This will return a badge if the user has the number of badges unlocked */}
                             <div className="badgeBorder">
                                 {count >=1 ?<img src={boulder} style={{height:"4vh"}}/> : <p></p>}
                             </div>

@@ -8,6 +8,7 @@ import ThePast from '../pages/ThePast';
 import ContactMe from "../pages/ContactMe";
 import { AnimatePresence } from "framer-motion"
 
+// this holds all pages to be rendered and allows me to use useLocation within HashRouter
 function AnimatedRoutes({user, setModalShow, setShowCascade, setNeedRelease, setShowThunder, setShowRainbow, setShowVolcano, setReleaseShow, setShowEarth}){
     const location=useLocation()
     return (

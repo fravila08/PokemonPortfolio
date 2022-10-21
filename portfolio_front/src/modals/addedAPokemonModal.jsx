@@ -1,6 +1,6 @@
 import Modal from 'react-bootstrap/Modal';
 
-function MyVerticallyCenteredModal(props) {
+function AddedAPokemon(props) {
     return (
       <Modal
         {...props}
@@ -27,4 +27,4 @@ function MyVerticallyCenteredModal(props) {
     );
   }
 
-  export default MyVerticallyCenteredModal;
+  export default AddedAPokemon;

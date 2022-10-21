@@ -28,8 +28,6 @@ def sign_up(request):
         return Response({"message":"new user was added"})
     except Exception as e :
         return Response({"message": e})
-    
-
 
 @api_view(['POST'])
 def log_in(request):
@@ -47,8 +45,6 @@ def log_in(request):
             return HttpResponse('Not Active')
     else:
         return HttpResponse('No user recognized')
-        
-
 
 @api_view(['POST'])
 def log_out(request):
@@ -58,13 +54,12 @@ def log_out(request):
     except:
         pass
 
-
 @api_view(['GET'])
 def curr_user(request):
     try:
         if request.user.is_authenticated:
             data = serializers.serialize("json", [request.user], fields=[
-                                        'first_name', 'email', 'password'])
+                                        'first_name', 'last_name', 'job_title', 'email', 'password', "number_of_pokemon", 'number_of_badges'])
             return HttpResponse(data)
         else:
             return JsonResponse({'user': None})
@@ -73,10 +68,13 @@ def curr_user(request):
 
 @api_view(['GET'])
 def profile_page(request):
-    if request.user:
-        current_user = AppUser.objects.filter(id=request.user.id).values()[0]
-        return Response(current_user)
-    else:
+    try:
+        if request.user:
+            current_user = AppUser.objects.filter(id=request.user.id).values()[0]
+            return Response(current_user)
+        else:
+            return Response(False)
+    except:
         return Response(False)
     
 @api_view(["POST"])
@@ -137,5 +135,5 @@ def badges(request):
         if request.method == "GET":
             return Response(currUser.number_of_badges)
     except:
-        pass
+        return Response(False)
     

@@ -8,7 +8,7 @@ function FindPokemon({user, setModalShow, setNeedRelease, setShowCascade}){
 
     const [foundData, setFoundData]= useState(false)
 
-    
+    // lines 11-22: Grabs a random pokemon by id from the PokeApi
     const  getPokemon= async ()=>{
         try{
             const randomNumber = Math.floor(Math.random()*899)
@@ -21,8 +21,8 @@ function FindPokemon({user, setModalShow, setNeedRelease, setShowCascade}){
         }
     }
     
+    // lines 24-58: Will grab the information from the pokemon and sent it to the database allowing the user to 'capture' a pokemon
     const savePokemon = (name, nickName, move_one, move_two, move_three, move_four, picture) =>{
-        
         try{
             name= pokemon["name"]
             picture = pokemon["sprites"]["front_default"]
@@ -64,14 +64,17 @@ function FindPokemon({user, setModalShow, setNeedRelease, setShowCascade}){
             setShowCascade(true)
         }
     }
-
     
     return(
         <div className="insideCard">
-            <h2 style={{textDecoration:"underline"}}>BUILD A TEAM</h2>
+            <h1 style={{textDecoration:"underline"}}>BUILD A TEAM</h1>
             {foundData ? <p></p>:
             <div>
-                <div style={{display:"flex", justifyContent:"center"}}><button onClick={getPokemon} style={{color:"green", border:"solid green 2px", padding:"10px", borderRadius:"10px"}}>FIND POKEMON</button></div>
+                <div style={{display:"flex", justifyContent:"center"}}>
+                    <button onClick={getPokemon} style={{color:"green", border:"solid green 2px", padding:"10px", borderRadius:"10px"}}>
+                        FIND POKEMON
+                    </button>
+                </div>
             </div>}
             <div className="pokeCard">
                 <div className="pokeIcon">
@@ -81,34 +84,33 @@ function FindPokemon({user, setModalShow, setNeedRelease, setShowCascade}){
                     {foundData ? pokemon["sprites"] ? <h3 className="pokeName" style={{fontFamily:'Pokemon Solid'}}>{pokemon["name"].toUpperCase()}</h3> : <p></p> : <p>Who will choose you?</p>}
                 </div>
                 <div style={{width:"100%", display:"flex", flexDirection:"column"}}>
-                    <div style={{display:"flex", justifyContent:"center", textDecoration:"underline"}}><h6>ABILITIES</h6></div>
-                    <ul>
-                        {foundData ? pokemon["sprites"] ? pokemon["abilities"].map((ability)=>(<li>{ability["ability"]["name"]}</li>)): <p></p> : <p></p>}
-                    </ul>
+                    <div style={{display:"flex", justifyContent:"center", textDecoration:"underline"}}><h4>ABILITIES</h4></div>
+                    {foundData ? pokemon["sprites"] ? pokemon["abilities"].map((ability)=>(<h6 style={{textAlign:"center"}}>{ability["ability"]["name"]}</h6>)): <p></p> : <p></p>}
                 </div>
                 <div style={{width:"100%", display:"flex", flexDirection:"column"}}>
-                    <div style={{display:"flex", justifyContent:"center", textDecoration:"underline"}}><h6>TYPES</h6></div>
-                    <ul>
-                        {foundData ? pokemon["sprites"] ? pokemon["types"].map((type)=>(<li>{type["type"]["name"]}</li>)) : <p></p> : <p></p>}
-                    </ul>
+                    <div style={{display:"flex", justifyContent:"center", textDecoration:"underline"}}><h4>TYPES</h4></div>
+                        {foundData ? pokemon["sprites"] ? pokemon["types"].map((type)=>(<h6 style={{textAlign:'center'}}>{type["type"]["name"].toUpperCase()}</h6>)) : <p></p> : <p></p>}
                 </div>
                 <div style={{width:"100%", display:"flex", flexDirection:"column"}}>
-                   <div style={{display:"flex", justifyContent:"center", textDecoration:"underline"}}><h6>MOVES</h6></div>
-                   
+                   <div style={{display:"flex", justifyContent:"center", textDecoration:"underline"}}><h4>MOVES</h4></div>
                    {foundData ? pokemon["sprites"] ?
-                    <ul>
-                        <li id="move_one">{pokemon["moves"][Math.floor(Math.random() * pokemon["moves"].length)]["move"]["name"]}</li>
-                        <li id="move_two">{pokemon["moves"][Math.floor(Math.random() * pokemon["moves"].length)]["move"]["name"]}</li>
-                        <li id="move_three">{pokemon["moves"][Math.floor(Math.random() * pokemon["moves"].length)]["move"]["name"]}</li>
-                        <li id="move_four">{pokemon["moves"][Math.floor(Math.random() * pokemon["moves"].length)]["move"]["name"]}</li>
-                    </ul> : <p></p> :<p></p>}
+                    <div style={{textAlign:"center", display:"flex", justifyContent:"space-around" }}>
+                        <div>
+                            <h6 style={{marginBottom:"0"}} id="move_one">{pokemon["moves"][Math.floor(Math.random() * pokemon["moves"].length)]["move"]["name"]}</h6>
+                            <h6 style={{marginBottom:"0"}} id="move_two">{pokemon["moves"][Math.floor(Math.random() * pokemon["moves"].length)]["move"]["name"]}</h6>
+                        </div>
+                        <div>
+                            <h6 style={{marginBottom:"0"}} id="move_three">{pokemon["moves"][Math.floor(Math.random() * pokemon["moves"].length)]["move"]["name"]}</h6>
+                            <h6 style={{marginBottom:"0"}} id="move_four">{pokemon["moves"][Math.floor(Math.random() * pokemon["moves"].length)]["move"]["name"]}</h6>
+                        </div>
+                    </div> : <p></p> :<p></p>}
                 </div>
                 
                 <div style={{width:"100%", display:"flex", justifyContent:"center", paddingBottom:"2vh"}}>
                     {user ?
                     <div style={{display:"flex", justifyContent:"space-around", width:"100%"}}>
                         {foundData ? 
-                        <div style={{display:"flex", justifyContent:"space-between"}}>
+                        <div style={{display:"flex", justifyContent:"space-between", marginTop:"10px"}}>
                             <button style={{color:"green", border:"solid green 2px", padding:"5px", borderRadius:"10px"}}  onClick={savePokemon}>CAPTURE</button>
                             <button style={{color:"red", border:"solid red 2px", padding:"5px", borderRadius:"10px"}} onClick={()=>setFoundData(false)}>RUN AWAY</button>
                         </div>:<p></p>}

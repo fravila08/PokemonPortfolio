@@ -3,7 +3,6 @@ import {motion} from "framer-motion"
 
 function SignUp() {
   function signUp(event) {
-    // this will come into effect once the it's a form to submit not a button you'll use get elementbyid().value to get the form values
     event.preventDefault()
     let firstName = document.getElementById('firstName').value
     let lastName = document.getElementById('lastName').value
@@ -17,7 +16,6 @@ function SignUp() {
       email: email,
       password: password
     }).then((response) => {
-      // usenavigate
       document.location.href = '#/signin'
       console.log('response from server: ', response.data.message)
     })

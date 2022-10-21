@@ -36,7 +36,7 @@ function SignIn() {
               className="form-control" required />
             <br />
             <button type="submit">Sign In</button>
-            <h6>Already have an account?</h6>
+            <h6>Don't have an account?</h6>
             <a href="#/SignUp">Create New Account</a>
           </form>
         </div>

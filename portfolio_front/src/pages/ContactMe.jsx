@@ -7,8 +7,11 @@ import axios from "axios"
 import {motion} from "framer-motion"
 import {send} from 'emailjs-com';
 import {useState} from "react"
+import ThankYou from "../modals/Thanks"
 
 function ContactMe({setShowVolcano}){
+    const [showThanks, setShowThanks]=useState(false)
+    // lines 15-41: handle the contact me form using emailjs.com library to allow users to send me an email
     const [toSend, setToSend] = useState({
         from_name: '',
         to_name: '',
@@ -30,6 +33,7 @@ function ContactMe({setShowVolcano}){
         )
           .then((response) => {
             console.log('SUCCESS!', response.status, response.text);
+            setShowThanks(true)
           })
           .catch((err) => {
             console.log('FAILED...', err);
@@ -51,6 +55,10 @@ function ContactMe({setShowVolcano}){
         animate={{opacity:1}}
         exit={{opacity:0}} 
         style={{paddingTop:"5vw"}}>
+            <ThankYou
+                show={showThanks}
+                onHide={()=>{setShowThanks(false), window.location.reload()}}
+                />
             <div style={{textAlign:"center"}}>
                 <h1>Contact Me</h1>
             </div>
@@ -66,7 +74,7 @@ function ContactMe({setShowVolcano}){
                                 <input
                                     type='text'
                                     name='from_name'
-                                    placeholder='from name'
+                                    placeholder='Name'
                                     value={toSend.from_name}
                                     onChange={handleChange}
                                 />
