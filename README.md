@@ -1,50 +1,158 @@
 
-# My Portfolio
+# Pokemon Portfolio
 
-I am an aspiring Junior Software Engineer with 3 years of coding experience. Upon completing
-my eight year enlistment with the United States Marine Corps I attended a Full Stack Software 
-engineering Coding Bootcamp where I was able to grow and strengthen my skills in app development.
-I am looking forward to this next stage of my life and hope to work with great people who have both
-lots to learn and lots to teach.
+This portfolio will clearly demonstrate my capabilities as a Full-Stack developer 
+while creating a user experience that is both fun and informative.
+
+
+the previous version of this project is currently deployed [here](https://favilas-portfolio.com).
+
+<img width="1512" alt="Screen Shot 2022-10-21 at 4 55 51 AM" src="https://user-images.githubusercontent.com/105952966/197190232-f58f3ae3-f146-4570-a5d2-74acedd1d100.png">
+
+## The PokeAPI
+
+### This project calls the PokeAPI with the following two endpoint methods.
+
+You can find all documentation pertaining to the PokeAPI [here](https://pokeapi.co/docs/v2).
+
+#### Get a Pokemon by {id}
+
+```http
+  GET https://pokeapi.co/api/v2/pokemon/{id}
+```
+
+#### Get a Pokemon by {name}
+
+```http
+  GET https://pokeapi.co/api/v2/pokemon/{name}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of pokemon to fetch |
+| `name`      | `string` | **Required**. name of pokemon to fetch |
+
+#### This returns a JSON object holding all information pertaining to the selected Pokemon.
+
+
+
+## Environment Variables
+
+Please ensure to hide your Django secret key inside your Environment as 'djangoKey.
+
+You can find this key on line 25 inside: 
+
+` ./portfolio_back/portfolio_back/settings.py `
+
+`SECRET_KEY`
 
 
 ## Tech Stack
 
-**Languages:** Languages: Python, JavaScript, SQL, C#
+**Client:** React, React-BootStrap, CSS
 
-**Platforms:** Django, React, BootStrap, PostgreSQL
+**Server:** Django, PostgreSQL
 
-**Deployment Tools:**  Nginx, Gunicorn, Linux(Ubuntu), AWS Ec2, AWS Route53
-
-**Other Tools:** AJAX, Rest API’s, Git, Github, OOP, HTML, CSS, Django_Rest
-
-<p align="left"> <a href="https://aws.amazon.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="40" height="40"/> </a> <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg" alt="bash" width="40" height="40"/> </a> <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/> </a> <a href="https://www.w3schools.com/cs/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" alt="csharp" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="django" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> <a href="https://www.nginx.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg" alt="nginx" width="40" height="40"/> </a> <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> </p>
-
-
-## Visit
-
-Go to https://faportfolio.com to see this project deployed.
+**Libraries:** 
+- [djangorestframeworks](https://www.django-rest-framework.org/): manages different request methods.
+- [Shake](https://www.npmjs.com/package/react-native-shake): Allows react objects to 'shake'.
+- [EmailJS](https://www.emailjs.com/): Give the user the ability to send me an email.
+- [psycopg2](https://www.psycopg.org/docs/install.html): used by Django to communicate with database.
 
 
-## Poke API
+## Run Locally
 
-#### Get Pokemon Details
-Click here to view the documentation https://pokeapi.co/
+- Clone the project
 
-```http
-    axios.get("https://pokeapi.co/api/v2/pokemon/{parameter}")
-
+```bash
+  git clone https://github.com/fravila08/PokemonPortfolio.git
 ```
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `name/id` | `string/integer` | **Required**. Name or ID of the Pokemon you are searching for |
+- Go to the project directory, then create and activate a virtual environment.
+
+```bash
+  cd PokemonPortfolio
+  python3 -m venv .venv
+  source .venv/bin/activate
+```
+
+- Install requirements.txt
+
+```bash
+  pip install -r requirements.txt
+```
+- Create a .env file and place your Django Secret key inside under the variable {djangoKey}.
+```bash
+  touch .env 
+```
+
+- The following commanda will be used to run the React portion of the project. 
+
+```bash
+  cd portfolio_front
+  npm install
+  npm run build
+```
+- Then create your database using PostgreSQL. We will use to install postgres, then we will enter postgres and create the portfolio database.
+```bash
+    brew doctor
+    brew update
+    brew install postgres
+    psql postgres
+    CREATE DATABASE portfolio;
+    \q
+```
+- Now that we have the build and our database, we can move to Django and make migrations.
+
+```bash
+  cd ..
+  cd portfolio_back
+  python3 manage.py makemigrations
+  python3 manage.py migrate
+```
+
+- Finally we are ready to start the server.
+
+```bash
+  python3 manage.py runserver
+```
+- Now open your prefered browser and go to [localhost:8000](localhost:8000) to view this application!
+
+#### Useful Resources for running Locally
+[Django VS code tutorial](https://code.visualstudio.com/docs/python/tutorial-django) goes over creating and activating an environment
+
+[This article](https://learnpython.com/blog/python-requirements-file/) goes over creating and installing requirements.txt
+
+[This repository](https://gist.github.com/ibraheem4/ce5ccd3e4d7a65589ce84f2a3b7c23a3) breaks down installing PostgreSQL through brew commands.
+
+[This article](https://scrimba.com/articles/create-react-app-with-vite/) covers creating and running a React application through Vite.
 
 
+## Features
+
+- User Authentication with sign up/in/out functionality.
+- User can 'capture' and 'release' pokemon.
+- User can collect gym badges by exploring the application.
+- User can send me an email via the contact from in the contact page.
 
 
-## Thanks for Stopping By!
+## Got any advice?
 
-Thank you for checking out this project, feel free to follow me for more projects like this. Also,
-if you happen to need help with any projects you are currently working on, please let me know where
-I can help.
+I'm always looking to learn and grow, please email me at fr4v1l4@gmail.com
+ with a quick introduction and your advice. 
+
+I'm looking forward to hearing from you!
+
+
+## Related
+
+Here are some related projects that have been deployed through AWS ec2 instances, Route53, Gunicorn, Nginx
+and Certbot
+
+- [The Happy Pig](https://fathehappypig.com)
+- [CP Fitness Store](https://cpfitstore.com)
+- [Task Manager](https://fataskmanager.com)
+
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/francisco-r-avila)
+
