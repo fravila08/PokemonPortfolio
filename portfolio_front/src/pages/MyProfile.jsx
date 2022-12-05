@@ -63,7 +63,7 @@ function Myprofile({user, setReleaseShow, setShowEarth}){
             setShowEarth(true)
         }
     }
-    
+    console.log(user && user.date_joined)
     return(
         <motion.div
         initial={{opacity:0}}
@@ -110,7 +110,7 @@ function Myprofile({user, setReleaseShow, setShowEarth}){
                             <div style={{display:"flex", justifyContent:"right"}}><img src={goldStar} className="star" /><img src={goldStar} className="star" /><img src={goldStar} className="star" /></div>
                             <h4 className="leftSideContent" ><img className="bulletCircle" src={circle} />JOB TITLE: {user && user.job_title}</h4>
                             <h4 className="leftSideContent"><img className="bulletCircle" src={circle} />EMAIL: {user && user.email}</h4>
-                            <h4 className="leftSideContent"><img className="bulletCircle" src={circle} />MEMBER SINCE: {user && user.date_joined.toString().split("T")[0]}</h4>
+                            <h4 className="leftSideContent"><img className="bulletCircle" src={circle} />MEMBER SINCE: {user && user.date_joined}</h4>
                         </div>
                         <div className="rightSide">
                             <img src={trainer} style={{height:"25vh"}}/>

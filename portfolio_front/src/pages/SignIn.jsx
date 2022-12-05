@@ -2,19 +2,26 @@ import axios from 'axios'
 import {motion} from "framer-motion"
 
 function SignIn() {
-  function signIn(event) {
+  const signIn = async()=>{
     event.preventDefault()
-    let email = document.getElementById('emailSignIn').value
-    let password = document.getElementById('passwordSignIn').value
-    axios.post('/sign_in', {
-      email: email,
-      password: password
-    }).then((response) => {
-      console.log('response from server: ', response)
-      window.location.href = '/'
+    let email=document.getElementById("signInEmail").value
+    let password=document.getElementById("signInPassword").value
+    console.log(email, password)
+    let myResponse=await axios.post('sign_in',{
+      'email':email,
+      'password':password
     })
-    
+    console.log(myResponse.data)
+    if (myResponse.data["signIn"]==true){
+      window.location.href="/"
+    }
+    else{
+        alert("incorrect input")
+        window.location.reload()
+    }
   }
+    
+  
   return (
       <motion.div
       initial={{opacity:0}}
@@ -22,22 +29,10 @@ function SignIn() {
       exit={{opacity:0}}  
       style={{display:"flex", justifyContent:"center", marginTop:"20vh", paddingBottom:"10vh"}}>
         <div className="signup">
-          <form onSubmit={signIn}>
-            <label htmlFor="email">Email</label>
-            <input id='emailSignIn'
-              placeholder='Email'
-              className="form-control"
-              required />
-            <br />
-            <label htmlFor="password">Password</label>
-            <input id='passwordSignIn'
-              type='password'
-              placeholder='Password'
-              className="form-control" required />
-            <br />
-            <button type="submit">Sign In</button>
-            <h6>Don't have an account?</h6>
-            <a href="#/SignUp">Create New Account</a>
+          <form onSubmit={signIn} style={{border:"black solid 2px"}}>
+            <input id='signInEmail' placeholder='email' />
+            <input id='signInPassword' placeholder='password' type="password"/>
+            <button onClick={signIn}>Sign In</button>
           </form>
         </div>
       </motion.div>

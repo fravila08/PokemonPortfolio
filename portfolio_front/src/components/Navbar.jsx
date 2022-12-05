@@ -5,24 +5,18 @@ import pokeBall from "../images/pokeballs/pokeBall.png"
 import ash from "../images/pokemon/ash.png"
 import { Shake } from "reshake"
 
-function NavBaar({setShowBoulder, setShowSoul, setShowMarsh}){
-
+function NavBaar({user, setShowBoulder, setShowSoul, setShowMarsh}){
+    console.log('navbar', user)
     const newBadge = async () =>{
         const badge= await axios.get('badges')
-        if(badge.data === false){
-            window.location.href='#/signUp'
-        }
-        else if (badge.data < 1){
+        if (badge.data< 1 && user !== null){
             axios.put('badges')
             setShowBoulder(true)
         }
     }
     const newBadgeTwo = async () =>{
         const badge= await axios.get('badges')
-        if(badge.data === false){
-            window.location.href='#/signUp'
-        }
-        else if (badge.data < 5 && badge.data == 4){
+        if (badge.data < 5 && badge.data == 4){
             axios.put('badges')
             setShowSoul(true)
         }
@@ -30,10 +24,7 @@ function NavBaar({setShowBoulder, setShowSoul, setShowMarsh}){
 
     const newBadgeThree = async () =>{
         const badge= await axios.get('badges')
-        if(badge.data === false){
-            window.location.href='#/signUp'
-        }
-        else if (badge.data < 6 && badge.data == 5){
+        if (badge.data < 6 && badge.data == 5){
             axios.put('badges')
             setShowMarsh(true)
         }

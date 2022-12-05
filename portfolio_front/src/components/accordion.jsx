@@ -1,7 +1,7 @@
 import Accordion from 'react-bootstrap/Accordion';
 import axios from 'axios'
 
-const MyAccordion=()=>{
+const MyAccordion=({setShowThunder, setShowRainbow})=>{
     // lines 6-20: handle the axios call for 2 seperate gym badges
     const newBadge = async () =>{
         const badge= await axios.get('badges')

@@ -21,10 +21,15 @@ function ThePast(){
                     <div className="xpRow">
                         <div style={{display:"flex", width:"70%", flexDirection:"column"}}>
                             <h3>TEACHER'S ASSISTANT</h3>
-                            <p>Current</p>
-                            <p>I am currently assisting students in Code Platoon's Full Stack Software Engineering Program in 
-                                their abilities to utilize JavaScript, Python, AJAX, HTML, CSS, BootStrap, API's, Django, Django Rest Framewords
-                                PostgreSQL, Git, Github, CRUD, and React to build algorithms and websites for their portfolio and or daily assignments.
+                            <p>
+                                ▪ Ensures all material for the 17-week curriculum on GitHub (consisting of over 100 separate repositories) is properly
+                                documented to ensure students ability to utilize the material with ease and improve their learning experience.
+                                ▪ Assist Instruction during the curriculum by providing insight in React, Django, PostgreSQL, HTML, CSS, Bootstrap, Rest
+                                API’s, OOP, CRUD, and AWS ec2 instances along with AWS route53 functionality to ensure student success.
+                                ▪ Lead review sessions with students to address questions and concerns over various topics such as React, Django etc.
+                                ▪ Participate in weekly retros with instructors and senior stakeholders to ensure continuous curriculum improvement.
+                                ▪ Mentor students on JS/Python full-stack development, including pair programming, debugging, leading white board
+                                exercises, conducting mock interviews & performing code review.
                             </p>
                         </div>
                         <div>
@@ -41,19 +46,23 @@ function ThePast(){
                         </div>
                         <div style={{display:"flex", width:"70%", flexDirection:"column"}}>
                             <h3>COMBAT INSTRUCTOR</h3>
-                            <p>2019-2022</p>
-                            <p>I was selected to serve in a Special Duty Assignment 
-                                where I taught entry level students the fundamentals of Basic Infantry Tactics and Mortar Gunnery through both physical
-                                and academic evaluations.
+                            <p>
+                                ▪ Trained and supervised the professional development of over 1700 entry-level Marines in Infantry Tactics through six
+                                three-month training cycles conducting various forms of performance and academic evaluations.
+                                ▪ Ensured completion of training events by supervising and coordinating ammunition, safety structures, tactical vehicles
+                                serviceability, instructors, student body, and any other equipment needed for the event of the day.
                             </p>
                         </div>
                     </div>
                     <div className="xpRow">
                         <div style={{display:"flex", width:"70%", flexDirection:"column"}}>
                             <h3>SECTION LEADER</h3>
-                            <p>2017-2019</p>
-                            <p>Here I led 13 Marines and was encharge in ensuring 
-                                their physical performance in combat excercises to support Battalion and Company Level Units.</p>
+                            <p>
+                                ▪ Trained over 10 foreign nationals on Mortar Gunnery to develop warfighting capabilities and foreign relations.
+                                ▪ Ensured the development and wellbeing of 13 Marines in both physical and mental aspects through constant training
+                                in both Infantry Tactics, and Troop Welfare exercises. This allowed for the success of all 13 Marines under my
+                                leadership who were quickly assigned to become Section Leaders of surrounding working agencies. 
+                            </p>
                         </div>
                         <div>
                             <div className="pokeHolder">

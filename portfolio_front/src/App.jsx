@@ -24,24 +24,19 @@ function App(){
   }
   // lines 26-34 will conduct an axios call during mounting and dismounting call to Django to grab user information from database if user is logged in
   const [user, setUser] = useState(null)
-  async function curr_user() {
-    try{
-      const response = await axios.get('profile_page')
-      if(response.data === false){
-        window.location.href='#/signUp'
-      }
-      else{
-        setUser(response.data)
-      }
-    }
-    catch{
-      console.log("No user")
-    }
+  async function curr_user(){
+    const response = await axios.get('curr_user')
+    const user = response.data && response.data[0] && response.data[0].fields
+    setUser(user)
   }
 
   useEffect(() => {
     curr_user()
   }, [])
+
+  useEffect(()=>{
+    console.log(user)
+  },[user])
 
   // the following are switches for all independent modals in the application
   const [modalShow, setModalShow] = useState(false);

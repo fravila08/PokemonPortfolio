@@ -2,23 +2,27 @@ import axios from 'axios'
 import {motion} from "framer-motion"
 
 function SignUp() {
-  function signUp(event) {
+  const signUp= async(event)=> {
     event.preventDefault()
     let firstName = document.getElementById('firstName').value
     let lastName = document.getElementById('lastName').value
     let jobTitle = document.getElementById('jobTitle').value
     let email = document.getElementById('email').value
     let password = document.getElementById('password').value
-    axios.post('/sign_up', {
+    let myResponse= await axios.post('/sign_up', {
       firstName: firstName,
       lastName: lastName,
       jobTitle: jobTitle,
       email: email,
       password: password
-    }).then((response) => {
-      document.location.href = '#/signin'
-      console.log('response from server: ', response.data.message)
     })
+    if(myResponse.data['signup']==true){
+      window.location.href="/#/signIn"
+    }
+    else{
+        alert("incorrect input")
+        window.location.reload()
+    }
   }
 
 

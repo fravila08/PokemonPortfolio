@@ -47,7 +47,7 @@ function MyProjects({user, setModalShow, setNeedRelease, setShowCascade, setShow
                 </div>
                 <div className="middleCard" style={{justifyContent:"center", textAlign:"center"}}>
                     <h1 style={{textDecoration:"underline", justifyContent:"center", alignItems:"center"}}>CERTIFICATES & PROJECTS</h1>
-                    <MyAccordion /> 
+                    <MyAccordion setShowThunder={setShowThunder} setShowRainbow={setShowRainbow}/> 
                 </div>
                 <div className="rightCard">
                         <h1 style={{textDecoration:"underline"}}>EDUCATION</h1>
