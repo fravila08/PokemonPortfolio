@@ -1,6 +1,7 @@
 from django.db import models
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from datetime import date
 
 class AppUser(AbstractUser):
     first_name = models.CharField(max_length=50, null=False, default='unkown')
@@ -16,6 +17,7 @@ class AppUser(AbstractUser):
     residing_state = models.CharField(max_length=250, null=True)
     number_of_pokemon = models.IntegerField(default=0)
     number_of_badges = models.IntegerField(default=0)
+    date_joined= models.DateField(default=date.today())
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

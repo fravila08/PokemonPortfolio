@@ -17,34 +17,40 @@ def home(request):
 @api_view(['POST'])
 def sign_up(request):
     try:
-        user = AppUser.objects.create_user(
+        AppUser.objects.create_user(
             first_name=request.data['firstName'],
             last_name=request.data['lastName'],
             job_title=request.data['jobTitle'],
             username=request.data['email'],
             password=request.data['password'],
             email=request.data['email'])
-        user.save()
-        return Response({"message":"new user was added"})
-    except Exception as e :
-        return Response({"message": e})
+        return JsonResponse({'signup':True})
+    except Exception as e:
+        print(e)
+        return JsonResponse({'signup':False})
+
+
 
 @api_view(['POST'])
 def log_in(request):
-    email = request.data['email']
-    password = request.data['password']
-    user = authenticate(username=email, password=password)
-    if user is not None:
-        if user.is_active:
-            try:
-                login(request._request, user)
-            except Exception as e:
-                pass
-            return HttpResponse('Youre logged in')
-        else:
-            return HttpResponse('Not Active')
+    email=request.data["email"]
+    password=request.data["password"]
+    user = authenticate(username= email, password = password)
+    if user is not None and user.is_active:
+        try:
+            login(request._request, user)
+            return JsonResponse({'signIn':True})
+        except Exception as e:
+            print(e)
+            return JsonResponse({'signIn':False})
     else:
-        return HttpResponse('No user recognized')
+        return JsonResponse({'signIn':False})
+    
+    
+    
+    
+
+    
 
 @api_view(['POST'])
 def log_out(request):
@@ -56,15 +62,11 @@ def log_out(request):
 
 @api_view(['GET'])
 def curr_user(request):
-    try:
-        if request.user.is_authenticated:
-            data = serializers.serialize("json", [request.user], fields=[
-                                        'first_name', 'last_name', 'job_title', 'email', 'password', "number_of_pokemon", 'number_of_badges'])
-            return HttpResponse(data)
-        else:
-            return JsonResponse({'user': None})
-    except:
-        pass
+    if request.user.is_authenticated:
+        data= serializers.serialize("json", [request.user], fields=['first_name', 'last_name', 'job_title', 'email', 'password', 'residing_state', 'number_of_pokemon', 'number_of_badges', 'date_joined'])
+        return HttpResponse(data)
+    else:
+        return JsonResponse({'user':None})
 
 @api_view(['GET'])
 def profile_page(request):
